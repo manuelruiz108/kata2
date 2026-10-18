@@ -1,4 +1,4 @@
 package software.ulpgc.kata2.model;
 
-public class Videogame {
+public record Videogame(String name, String genre, String platform) {
 }
