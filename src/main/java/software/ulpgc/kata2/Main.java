@@ -17,12 +17,21 @@ public class Main {
         for (Videogame videogame : videogamesFile) {
             System.out.println(videogame);
         }
-
+        double ratingPromedioFile = videogamesFile.stream()
+                .mapToDouble(Videogame::rating)
+                .average()
+                .orElse(0.0);
+        System.out.printf("%.3f%n",ratingPromedioFile);
         URL url = new URL("https://raw.githubusercontent.com/manuelruiz108/kata2/main/videogamesURL.tsv");
         VideogameReader urlReader = new URLVideogameReader(url);
         List<Videogame> videogamesURL = urlReader.load();
         for (Videogame videogame : videogamesURL) {
             System.out.println(videogame);
         }
+        double ratingPromedioURL = videogamesURL.stream()
+                .mapToDouble(Videogame::rating)
+                .average()
+                .orElse(0.0);
+        System.out.printf("%.3f%n",ratingPromedioURL);
     }
 }

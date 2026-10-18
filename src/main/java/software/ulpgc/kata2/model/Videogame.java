@@ -1,4 +1,16 @@
 package software.ulpgc.kata2.model;
 
-public record Videogame(String name, String platform, String genre) {
+import java.util.Objects;
+
+public record Videogame(String name, String platform, Double rating, String genre) {
+
+    @Override
+    public String toString() {
+        return "Videogame[" +
+                "name=" + name + ", " +
+                "platform=" + platform + ", " +
+                "rating=" + rating + ", " +
+                "genre=" + genre + ']';
+    }
+
 }

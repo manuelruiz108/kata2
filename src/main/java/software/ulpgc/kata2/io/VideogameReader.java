@@ -30,6 +30,6 @@ public interface VideogameReader {
     }
 
     private Videogame loadFrom(String[] fields) {
-        return new Videogame(fields[0], fields[1], fields[4]);
+        return new Videogame(fields[0], fields[1], Double.parseDouble(fields[3]), fields[4]);
     }
 }
