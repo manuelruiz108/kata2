@@ -11,6 +11,15 @@ target/
 *.iws
 *.iml
 *.ipr
+out/
+bin/
+*.class
+*.jar
+*.war
+*.zip
+*.exe
+Log/
+tmp/
 
 ### Eclipse ###
 .apt_generated
