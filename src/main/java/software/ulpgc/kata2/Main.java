@@ -1,16 +1,17 @@
 package software.ulpgc.kata2;
-import software.ulpgc.kata2.io.FileVideogameReader;
-import software.ulpgc.kata2.io.URLVideogameReader;
-import software.ulpgc.kata2.io.VideogameReader;
+import software.ulpgc.kata2.io.*;
 import software.ulpgc.kata2.model.Videogame;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws MalformedURLException {
+    public static void main(String[] args) throws IOException {
         File archivo = new File("videogames.tsv");
         VideogameReader fileReader = new FileVideogameReader(archivo);
         List<Videogame> videogamesFile = fileReader.load();
@@ -33,5 +34,12 @@ public class Main {
                 .average()
                 .orElse(0.0);
         System.out.printf("%.3f%n",ratingPromedioURL);
+
+        File archivoSalida = new File("resumen.txt");
+        try (FileOutputStream fos = new FileOutputStream(archivoSalida)) {
+            SummaryWriter fileWriter = new StreamSummaryWriter(fos);
+            fileWriter.write(videogamesFile, ratingPromedioFile);
+            System.out.println("Resultados guardados con éxito en: " + archivoSalida.getAbsolutePath());
+        }
     }
 }
