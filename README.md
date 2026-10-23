@@ -14,7 +14,7 @@ lo único que hay que hacer es añadir otro fichero y cambiar el nombre del que
 quieres leer en el main o lo mismo con la url
 
 ## Dependencias y versión del JDK
-java 1.8.0
+java 1.8.0  
 JDK 24.0.2
 
 ## Estructura de la entrega y clases principales
